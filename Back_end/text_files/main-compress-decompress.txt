@@ -1,0 +1,12 @@
+/*
+	// Bits
+
+	cout << __builtin_clz(20) << endl; // No of starting 0
+	cout <<  __builtin_ctz(20) << endl; // No of ending 0
+
+	cout << __builtin_popcount(20)  << endl; // No of total 1
+	cout << __&builtin_parity(20) << endl; //  (No of total 1 & 1)
+
+*/ 
+
+
