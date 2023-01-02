@@ -1,13 +1,13 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  width: 98%;
+  overflow-y:hidden;
 }
 
 .logo {
   height: 6em;
-  padding: 1.5em;
+   padding: 1.5em; 
   will-change: filter;
 }
 .logo:hover {
@@ -38,4 +38,24 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+.dropzone {
+  text-align: center;
+  padding: 30px;
+  border: 3px dashed #eeeeee;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.selected-file-wrapper {
+  text-align: center;
+}
+
+.selected-file {
+  color: #000; 
+  font-weight: bold;
 }

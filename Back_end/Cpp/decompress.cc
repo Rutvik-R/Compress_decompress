@@ -11,8 +11,6 @@
 // function which convert int to <=8 bit binary string
 std::string numToB(int num , int i = 8) {
 
-	std::cout << i << " " << num << std::endl;
-
 	if (i == 0) i = 8;
 
 	if (num < 0) num += 256;

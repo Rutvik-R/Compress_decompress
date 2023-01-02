@@ -9,9 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.2.2",
     "express": "^4.18.2",
+    "js-file-download": "^0.4.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-drag-drop-files": "^2.3.8",
+    "react-dropzone": "^14.2.3",
+    "react-particles": "^2.7.1",
+    "react-router-dom": "^6.6.1",
+    "react-tsparticles": "^2.7.1",
+    "tsparticles": "^2.7.1",
+    "tsparticles-engine": "^2.7.1",
+    "tsparticles-preset-links": "^2.7.1",
+    "tsparticles-preset-triangles": "^2.7.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

@@ -208,7 +208,7 @@ napi_value Main(napi_env env , napi_callback_info info) {
 		c = bToNum(bit_line_code.substr(i , 8));
 
 		out << c;
-		std::cout << c;
+		// std::cout << c;
 	}
 
 	// check for last <8 bits and store it
@@ -217,13 +217,13 @@ napi_value Main(napi_env env , napi_callback_info info) {
 		c = bToNum(bit_line_code.substr(size - size % 8 , size % 8) , size % 8);
 
 		out <<  c ;
-		std::cout << c;
+		// std::cout << c;
 	}
 
 	// store how many bits are important of last charecter
 
 	out << (bit_line_code.size() % 8);
-	std::cout << (bit_line_code.size() % 8) << std::endl;
+	// std::cout << (bit_line_code.size() % 8) << std::endl;
 
 
 	// close output file
@@ -252,3 +252,7 @@ napi_value init(napi_env env, napi_value exports) {
 }
 
 NAPI_MODULE( NODE_GYP_MODULE_NAME , init);
+
+
+
+// while change run node-gyp configure build
