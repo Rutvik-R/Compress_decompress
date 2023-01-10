@@ -134,7 +134,7 @@ napi_value Main(napi_env env , napi_callback_info info) {
 
 
 	std::ifstream in("text_files/main.txt");
-	std::ofstream out("text_files/main-compress.bin");
+	std::ofstream out("text_files/main-compress.bin" , std::ios::binary);
 
 
 	// main contains full file
@@ -177,9 +177,6 @@ napi_value Main(napi_env env , napi_callback_info info) {
 
 	// Print all codes in compress file
 
-	// for (std::string x : codes) std::cout << x << " ";
-
-	// for (int i = 0 ; i < 256 ; i++) std::cout << codes[i] << " ";
 
 	for (int i = 0 ; i < 256 ; i++) out << codes[i] << " ";
 	out << "\n";

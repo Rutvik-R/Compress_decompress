@@ -13,6 +13,7 @@ export const uploadFile = (file , onUploadProgress) => {
         },
         onUploadProgress,
     });
+    // console.log(res)
     return  res;
 };
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
 import { getFiles, uploadFile } from "../services/FileUploadService_compress";
 import FileDownload from "js-file-download"
+// import { saveAs } from 'file-saver';
 import "./css/compress.css"
 import ParticlesContainer from "./ParticlesBackgroundHome"
 
@@ -38,7 +39,7 @@ const Compress	= () => {
             setProgress(Math.round((100 * event.loaded) / event.total));
         })
             .then((res) => {
-            	
+            	console.log(res)
             	setReasponseText(res.data);
             	setDownloadButton(0);
                 let last_index = (currentFile.name).lastIndexOf('.');
@@ -65,7 +66,11 @@ const Compress	= () => {
 
     
     const download = (e) => {
+        console.log(responseText);
     	FileDownload(responseText , fileName  + "-compress.bin");
+        // var file = new File(responseText, { type: "text/plain;charset=binary" });
+        // saveAs(file , "comppressed.bin");
+
     }
 
 
