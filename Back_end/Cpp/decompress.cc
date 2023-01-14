@@ -8,10 +8,10 @@
 
 
 
-// function which convert int to <=8 bit binary string
-std::string numToB(int num , int i = 8) {
+// function which convert int to <=7 bit binary string
+std::string numToB(int num , int i = 7) {
 
-	if (i == 0) i = 8;
+	if (i == 0) i = 7;
 
 	if (num < 0) num += 256;
 
@@ -73,7 +73,7 @@ napi_value Main(napi_env env , napi_callback_info info) {
 
 
 
-	// for (int i = 0 ; i < 256 ; i++) cout << codes[i] << endl;
+	// for (int i = 0 ; i < 256 ; i++) std::cout << codes[i] << " ";
 
 	// take full coded text form compress file
 
@@ -109,11 +109,13 @@ napi_value Main(napi_env env , napi_callback_info info) {
 
 		}
 
-		// check for less then 8  last bits
+		// check for less then 7  last bits
 
 		binFile += numToB(codedFile[size - 2] , (codedFile[size - 1] - '0'));
 
 		// convert binary text to original text by calling biLineToMainline function
+
+		// std::cout << binFile << std::endl;
 
 		std::string main_file = "";
 

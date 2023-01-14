@@ -14,6 +14,7 @@ const Compress	= () => {
     const [message, setMessage] = useState("");
     const [downloadButton, setDownloadButton] = useState(1);
     const [fileName , setFileName] = useState("");
+    const [percentage, setPercentage] = useState("");
     
     const [responseText , setReasponseText] = useState("");
     
@@ -21,10 +22,17 @@ const Compress	= () => {
 
     const onDrop = (files) => {
         if (files.length > 0) {
-            setSelectedFiles(files);
-            setMessage('');
-            setReasponseText('Please Upload it ....');
-            setDownloadButton(1);
+            console.log(files[0].type , files[0].size);
+            if(files[0].type != "text/plain"){
+                alert("Select text file only")
+            }
+            
+            // else{
+                setSelectedFiles(files);
+                setMessage('');
+                setReasponseText('Please Upload it ....');
+                setDownloadButton(1);
+            // }
         }
     };
 
@@ -47,6 +55,7 @@ const Compress	= () => {
                 setProgress(0);
                 setMessage("uploaded");
                 setCurrentFile(undefined);
+                setPercentage(res.data.length / selectedFiles[0].size * 100);
             })
             .catch(() => {
                 setProgress(0);
@@ -129,7 +138,7 @@ const Compress	= () => {
 				</div>
 				<button disabled={downloadButton} onClick={(e) => {download(e)}} > Download </button>
 				<div className="file-data-res">
-                    {!downloadButton?`Compressed File length : ` + responseText.length: responseText}
+                    {!downloadButton?`Compressed File length : ${100 - percentage}%  ${responseText.length} ` : responseText}
                 </div>
 			</div>
 		</div>

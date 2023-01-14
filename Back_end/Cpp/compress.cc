@@ -106,9 +106,9 @@ std::vector<std::string> huffmanCode(unsigned long long freq[]) {
 	return code;
 }
 
-// function to convert <= 8 bit binary string to int
+// function to convert <= 7 bit binary string to int
 
-int bToNum(std::string s , int size = 8) {
+int bToNum(std::string s , int size = 7) {
 
 	int num = 0 ;
 
@@ -200,18 +200,18 @@ napi_value Main(napi_env env , napi_callback_info info) {
 
 	// std::cout << "hello\n" << bit_line_code;
 
-	for (int i = 0 ; i < size - size % 8 ; i += 8) {
+	for (int i = 0 ; i < size - size % 7 ; i += 7) {
 
-		c = bToNum(bit_line_code.substr(i , 8));
+		c = bToNum(bit_line_code.substr(i , 7));
 
 		out << c;
 		// std::cout << c;
 	}
 
-	// check for last <8 bits and store it
+	// check for last <7 bits and store it
 
-	if (size % 8) {
-		c = bToNum(bit_line_code.substr(size - size % 8 , size % 8) , size % 8);
+	if (size % 7) {
+		c = bToNum(bit_line_code.substr(size - size % 7 , size % 7) , size % 7);
 
 		out <<  c ;
 		// std::cout << c;
@@ -219,7 +219,7 @@ napi_value Main(napi_env env , napi_callback_info info) {
 
 	// store how many bits are important of last charecter
 
-	out << (bit_line_code.size() % 8);
+	out << (bit_line_code.size() % 7);
 	// std::cout << (bit_line_code.size() % 8) << std::endl;
 
 
