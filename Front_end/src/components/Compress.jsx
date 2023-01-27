@@ -8,8 +8,8 @@ import ParticlesContainer from "./ParticlesBackgroundHome"
 
 const Compress	= () => {
 	
-	const [selectedFiles, setSelectedFiles] = useState(undefined);
-    const [currentFile, setCurrentFile] = useState(undefined);
+	const [selectedFiles, setSelectedFiles] = useState([{}]);
+    const [currentFile, setCurrentFile] = useState({});
     const [progress, setProgress] = useState(0);
     const [message, setMessage] = useState("");
     const [downloadButton, setDownloadButton] = useState(1);
@@ -20,7 +20,8 @@ const Compress	= () => {
     
     const [fileInfos, setFileInfos] = useState([]);
 
-    const onDrop = (files) => {
+    const onDrop = (files ) => {
+        if(files == undefined) return;
         if (files.length > 0) {
             console.log(files[0].type , files[0].size);
             if(files[0].type != "text/plain"){
@@ -37,6 +38,7 @@ const Compress	= () => {
     };
 
     const upload = () => {
+        if(selectedFiles == undefined) return;
         let currentFile = selectedFiles[0];
 
         setProgress(0);
@@ -54,16 +56,16 @@ const Compress	= () => {
                 setFileName((currentFile.name).substring(0,last_index));
                 setProgress(0);
                 setMessage("uploaded");
-                setCurrentFile(undefined);
-                setPercentage(res.data.length / selectedFiles[0].size * 100);
+                setCurrentFile({});
+                setPercentage((res.data.length) / selectedFiles[0].size * 100);
             })
             .catch(() => {
                 setProgress(0);
                 setMessage("Not uploaded");
-                setCurrentFile(undefined);
+                setCurrentFile({});
             });
 
-        setSelectedFiles(undefined);
+        setSelectedFiles([{}]);
     };
 
     useEffect(() => {

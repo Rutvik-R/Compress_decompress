@@ -1,7 +1,7 @@
 import http from "../http-common";
 
 
-export const uploadFile = (file , onUploadProgress) => {
+export const uploadFile = (file: string | Blob, onUploadProgress: (event: any) => void) => {
     let formData = new FormData();
 
     formData.append("file" , file);

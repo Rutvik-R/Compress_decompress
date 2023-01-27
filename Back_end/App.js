@@ -8,7 +8,7 @@ const Buffer = require('buffer');
 const compress = require('./build/Release/compress');
 const decompress = require('./build/Release/decompress');
 
-const port = 5000
+const port = process.env.PORT || 5000
 
 const app = express();
 

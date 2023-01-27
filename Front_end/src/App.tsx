@@ -13,10 +13,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path='/' element={<Home />} ></Route>
-        <Route exact path='/compress' element={<Compress />} ></Route>
-        <Route exact path='/decompress' element={<Decompress />} ></Route>
-        {/*<Route exact path='/test' element={<UploadFiles />} ></Route>*/}
+        <Route  path='/' element={<Home />} ></Route>
+        <Route  path='/compress' element={<Compress />} ></Route>
+        <Route  path='/decompress' element={<Decompress />} ></Route>
+        <Route  path='/test' element={<Test />} ></Route>
       </Routes>
     </Router>
   )
