@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .gradientMain {
+        background: linear-gradient(139.68deg, #731CE1 27.7%, rgba(108, 13, 228, 0.453125) 98.54%);
+    }
+    .gradientCompress {
+        background: conic-gradient(from 261.18deg at 100% 100%, rgba(8, 7, 19, 80.49) 0deg, rgba(26, 61, 152, 7.71875) 20.63deg, rgba(72, 112, 255, 0.8) 298.12deg, rgba(8, 7, 19, 0.39) 360deg);
+    }
+
+    .gradientCompressButton {
+        background: linear-gradient(180deg, #FF4F4F 0%, rgba(255, 255, 255, 0.5) 100%);
+    }
+
+    .gradientDropzone {
+        background: linear-gradient(45deg, red, blue);
+        border:none;
+        cursor:move;
+        box-shadow: 1px 5px 5px 0px;
+    }
+
+    .boxShadow {
+        box-shadow: 1px 5px 5px 1px;
+        border-radius: 5px 5px 5px 5px;
+    }
+    .min-h-20px {
+        min-height: calc( 100vh - 20px );
+    }
+    .min-h-80px {
+        min-height: calc( 100vh - 80px );
+    }
+    .h-20px{
+        height: calc(100vh - 20px);
+    }
+    .pngShadow{
+        -webkit-filter: drop-shadow(5px 5px 5px #ad7fbd);
+        filter: drop-shadow(5px 5px 5px #db1cab);
+    }
+}
