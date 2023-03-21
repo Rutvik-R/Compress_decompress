@@ -131,8 +131,6 @@ napi_value Main(napi_env env , napi_callback_info info) {
 	napi_get_cb_info(env , info , &argc , args, NULL , NULL);
 	napi_create_double(env , 1 , &output);
 
-
-
 	std::ifstream in("text_files/main.txt");
 	std::ofstream out("text_files/main-compress.bin" , std::ios::binary);
 

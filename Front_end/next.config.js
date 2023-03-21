@@ -8,7 +8,7 @@ module.exports = () => {
     return [
       {
         source: "/file/compress/upload",
-        destination: "https://backend-compress-decompress.onrender.com/file/compress/upload",
+        destination: "http://localhost:5000/api/compress/file",
       },
       {
         source: "/file/decompress/upload",

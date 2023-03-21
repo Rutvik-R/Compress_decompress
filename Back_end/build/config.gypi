@@ -367,16 +367,6 @@
     "want_separate_host_toolset": 0,
     "nodedir": "C:\\Users\\rutvi.RUTVIK\\AppData\\Local\\node-gyp\\Cache\\16.17.0",
     "standalone_static_library": 1,
-    "msbuild_path": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
-    "cache": "C:\\Users\\rutvi.RUTVIK\\AppData\\Local\\npm-cache",
-    "globalconfig": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm\\etc\\npmrc",
-    "global_prefix": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm",
-    "init_module": "C:\\Users\\rutvi.RUTVIK\\.npm-init.js",
-    "local_prefix": "D:\\compress-decompress\\Back_end",
-    "metrics_registry": "https://registry.npmjs.org/",
-    "node_gyp": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js",
-    "prefix": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm",
-    "userconfig": "C:\\Users\\rutvi.RUTVIK\\.npmrc",
-    "user_agent": "npm/9.2.0 node/v16.17.0 win32 x64 workspaces/false"
+    "msbuild_path": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe"
   }
 }
