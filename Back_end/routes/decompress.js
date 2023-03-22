@@ -11,39 +11,28 @@ router.post('/file' , (req , res) => {
         let file = req.files.file
 
         let file_name = file.name;
-
+        const fileData = file.data.toString();
         console.log( file_name , file.size , "decompress")
 
-        file.mv('./../text_files/main-compress.bin' , function (err) {
+        file.mv('./text_files/main-compress.bin' , function (err) {
             if(err){
                 console.log(err)
                 res.status(404).send("Not uploaded \nPlease check your file type");
             } else{
+            
+            let start = performance.now();
                 
-                
-            let status = decompress();    
-                
-            if(status != 0) res.status(400).send("Not compressed")
-    
+            const decompress_data = decompress.main(fileData);    
+            
+            const time = performance.now() - start;
+
+            if(!decompress_data) res.status(400).send("Not decompress")
             else{
-   
-                var options = {
-                    root : path.join(__dirname)
-                };
-    
-                res.status(200).sendFile('./../text_files/main-compress-decompress.txt' , options , (err)=>{
-                    if(err){
-                        console.log(err);
-                    } else{
-                        console.log("Done")
-                    }
-                })
+                res.status(200).send({decompress_data , "time" : time});
             }
         }
 
-    })
-        
-        
+    })   
     } else{
         res.status(400).send("File not found")
     }

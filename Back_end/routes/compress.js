@@ -1,54 +1,45 @@
 const router = require("express").Router();
 const compress = require('./../build/Release/compress');
-const fs = require('fs')
-const Buffer = require('buffer');
-const path = require('path')
-// const csvtojson = require("csvtojson");
 
+router.post("/file", (req, res) => {
 
-router.post( "/file" , (req, res) => {
-    
-    const {file} = req.files;
-
-    if (file) {
-        let file_name = file.name;
-
-        console.log(file_name, file.size, "compress")
+    const { file } = req.files;
+    if (!file) res.status(404).send("File not found");
+    else {
 
         const fileData = file.data.toString();
+        
+        let start = performance.now();
 
-        console.log(fileData);
+        const compress_data = compress.main(fileData);
 
-        file.mv('./text_files/main.txt', async function (err) {
-            if (err) {
-                console.log(err)
-                res.status(404).send("Not uploaded \nPlease check your file type");
-            }
-            else {
+        const time = performance.now() - start;
 
-                let status = compress(fileData);
-
-                if (status == 0) {
-
-                    
-                    let data = fs.readFileSync('./text_files/main-compress.bin', (err, data) => {
-                        console.log(data);
-                    })
-
-                    res.status(200).send(data);
-                } else {
-                    res.status(400).send("Not compressed")
-                }
-            }
-        })
-
-    } else {
-        res.status(400).send("File not found")
+        if (compress_data) {
+            res.status(200).send({compress_data , "time" : time});
+        } else {
+            res.status(501).send("Not compressed")
+        }
     }
 })
 
-router.post( "/text" , (_req, res) => {
-    res.status(403).send("Not Available");
+router.post("/text", (req, res) => {
+
+    const data = req.body.data;
+    
+    if (!data) {
+        res.status(404).send("Empty data");
+
+    } else {
+        let start = performance.now();
+        const compress_data = compress.main(data);
+        let time = performance.now() - start;
+        if (compress_data) {
+            res.status(200).send({compress_data , "time" : time});
+        } else {
+            res.status(501).send("Not compressed")
+        }
+    }
 })
 
 module.exports = router;
