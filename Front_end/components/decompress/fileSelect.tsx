@@ -41,8 +41,8 @@ const FileSelect = () => {
                 status: 0,
                 type: file_type,
                 main_file: files[i],
-                compress_data: null,
-                size_compressed: null,
+                decompress_data: null,
+                size_decompressed: null,
             }
             newList = [...newList, x];
             total++;
@@ -66,9 +66,9 @@ const FileSelect = () => {
         let newList1: React.SetStateAction<any[]> = [...list];
         newList1[key - 1] = obj;
         setList(newList1);
-
-        obj.compress_data = (await res).data;
-        obj.size_compressed = (await res).data.length;
+        console.log(res);
+        // obj.decompress_data = (await res).data.data;
+        // obj.size_decompressed = obj.decompress_data.length;
         obj.status = 1;
 
         let newList: React.SetStateAction<any[]> = [...list];
@@ -81,7 +81,7 @@ const FileSelect = () => {
 
     const onDownload = async (key : any) => {
         let last_index = (list[key-1].name).lastIndexOf('.');
-        fileDownload(list[key-1].compress_data , list[key-1].name.substring(0,last_index) + "-decompress.txt");
+        fileDownload(list[key-1].decompress_data , list[key-1].name.substring(0,last_index) + "-decompress.txt");
     }
 
     return (
@@ -149,7 +149,7 @@ const FileSelect = () => {
                                                 Size of file : {obj.size_main} <hr />
                                                 file type : {obj.type} <hr />
                                                 {obj.status == 1 ?
-                                                    `Compress file size : ${obj.size_compressed} `
+                                                    `Compress file size : ${obj.size_decompressed} `
                                                     : ""}
 
                                             </Text>

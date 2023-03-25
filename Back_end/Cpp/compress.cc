@@ -1,10 +1,10 @@
 #include <iostream>
-#include <cstring>
 #include <string>
 #include <fstream>
 #include <vector>
 #include <queue>
-#include <node.h>
+#include <node_api.h>
+
 
 // define class node for huffman codeing
 
@@ -122,28 +122,45 @@ int bToNum(std::string s , int size = 7) {
 }
 
 
-void Main(const v8::FunctionCallbackInfo<v8::Value> &args) {
+napi_value Main(napi_env env , napi_callback_info info) {
 
-	v8::Isolate* isolate = args.GetIsolate();
+	size_t argc = 1;
+	napi_value args[1];
+	napi_value output ;
 
-	if(!args[0]->IsString()){
-		isolate->ThrowException(v8::Exception::TypeError(
-        v8::String::NewFromUtf8(isolate, "Wrong arguments").ToLocalChecked()));
-    return;
+	napi_get_cb_info(env , info , &argc , args, NULL , NULL);
+	napi_create_double(env , 1 , &output);
 
+
+
+	std::ifstream in("text_files/main.txt");
+	std::ofstream out("text_files/main-compress.bin" , std::ios::binary);
+
+
+	// main contains full file
+	// extra for reading line by line
+
+	std::string extra = "" , main = "";
+
+
+	// Reading tex from file linne by line
+
+	// checking for new line accore ?
+	bool check_first_time = true;
+
+	while (!in.eof()) {
+		getline(in , extra);
+		if (!check_first_time) main += "\n";
+		main += extra ;
+
+		check_first_time = false;
 	}
 
-	v8::String::Utf8Value str(isolate, args[0]);
-	std::string main(*str);
+	// Reading end now close in file
 
-	// std::cout<<main<<"\nLine ****\n";
+	in.close();
 
-	// std::ofstream out("text_files/main-compress.bin" , std::ios::binary);
-	std::string out = "";
-
-	// // main contains full file
-	// // extra for reading line by line
-	std::string extra = "";
+	// std::cout << main << "\n";
 
 	// Count frequency of all Characters in  freq array
 
@@ -161,8 +178,8 @@ void Main(const v8::FunctionCallbackInfo<v8::Value> &args) {
 	// Print all codes in compress file
 
 
-	for (int i = 0 ; i < 256 ; i++) { out += codes[i]; out += " ";}
-	out += "\n";
+	for (int i = 0 ; i < 256 ; i++) out << codes[i] << " ";
+	out << "\n";
 
 
 
@@ -187,7 +204,7 @@ void Main(const v8::FunctionCallbackInfo<v8::Value> &args) {
 
 		c = bToNum(bit_line_code.substr(i , 7));
 
-		out += c;
+		out << c;
 		// std::cout << c;
 	}
 
@@ -196,39 +213,43 @@ void Main(const v8::FunctionCallbackInfo<v8::Value> &args) {
 	if (size % 7) {
 		c = bToNum(bit_line_code.substr(size - size % 7 , size % 7) , size % 7);
 
-		out +=  c ;
+		out <<  c ;
 		// std::cout << c;
 	}
 
 	// store how many bits are important of last charecter
 
-	c = ('0' + (bit_line_code.size() % 7));
-	out += c;
-
-	char * arr = new char [out.size()+1];
-	
-	std::strcpy(arr , out.c_str());
+	out << (bit_line_code.size() % 7);
+	// std::cout << (bit_line_code.size() % 8) << std::endl;
 
 
+	// close output file
 
-	v8::Local<v8::Context> context = isolate->GetCurrentContext();
-  	v8::Local<v8::Object> obj = v8::Object::New(isolate);
-   	v8::Local<v8::Value> argv[1] = {
-    v8::String::NewFromUtf8( isolate, arr ).ToLocalChecked() };
- 	obj->Set(context,
-        	v8::String::NewFromUtf8(isolate,
-                   "data").ToLocalChecked(),
-                   argv[1]->ToString(context).ToLocalChecked())
-           	.FromJust();
+	out.close();
 
-  args.GetReturnValue().Set(obj);
+
+
+	napi_create_double(env , 0 , &output);
+
+
+	return output;
 
 }
 
-void Initialize(v8::Local<v8::Object> exports) {
-    NODE_SET_METHOD(exports , "main" , Main);
+
+
+
+napi_value init(napi_env env, napi_value exports) {
+
+	napi_value status ;
+
+	napi_create_function(env , nullptr , 0 , Main , nullptr , &status );
+
+	return status;
 }
 
-NODE_MODULE(addon , Initialize);
+NAPI_MODULE( NODE_GYP_MODULE_NAME , init);
+
+
 
 // while change run node-gyp configure build

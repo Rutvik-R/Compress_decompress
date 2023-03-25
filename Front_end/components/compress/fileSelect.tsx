@@ -58,16 +58,18 @@ const FileSelect = () => {
 
         let obj = list[key - 1];
         let res = upload(obj.main_file);
-
+        console.log(res);
         obj.status = 2;
 
         let newList1: React.SetStateAction<any[]> = [...list];
         newList1[key - 1] = obj;
         setList(newList1);
 
-        obj.compress_data = (await res).data;
-        obj.size_compressed = (await res).data.length;
+        // console.log(res);
+        obj.compress_data = (await res).data.data;
+        obj.size_compressed = obj.compress_data.length;
         obj.status = 1;
+        console.log((await res).data.data.length);
 
         let newList: React.SetStateAction<any[]> = [...list];
         newList[key - 1] = obj;
