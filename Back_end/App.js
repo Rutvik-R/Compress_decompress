@@ -3,7 +3,6 @@ const upload = require('express-fileupload')
 const cors = require('cors')
 const path = require('path')
 const fs = require('fs')
-const Buffer = require('buffer');
 
 const compress = require('./build/Release/compress');
 const decompress = require('./build/Release/decompress');
@@ -15,111 +14,117 @@ const app = express();
 app.use(upload())
 app.use(cors())
 
-app.get('/' , (req , res) => {
-    res.status(200).send("Working..........") 
+app.get('/', (req, res) => {
+    res.status(200).send("Working..........")
 })
 
-app.post('/file/compress/upload' , (req , res) => {
+app.post('/api/compress/file', (req, res) => {
 
-    if(req.files.file){
+    if (req.files.file) {
 
         let file = req.files.file
 
         let file_name = file.name;
 
-        console.log( file_name , file.size , "compress")
+        console.log(file_name, file.size, "compress")
 
-        file.mv('./text_files/main.txt' , function (err) {
-            if(err){
+        file.mv('./text_files/main.txt', function (err) {
+            if (err) {
                 console.log(err)
                 res.status(404).send("Not uploaded \nPlease check your file type");
             }
-            else{
-                
-        let status = compress();    
-            
-        if (status == 0 ){
-            
-            var options = {
-                root : path.join(__dirname)
-            };
-            
-            res.status(200).sendFile('./text_files/main-compress.bin'  , options , (err)=>{
-                if(err){
-                    console.log(err);
-                } else{
-                    console.log("Done")
+            else {
+
+                let status = compress();
+
+                if (status == 0) {
+
+                    const result = fs.readFileSync('./text_files/main-compress.bin', 'utf8');
+                    res.status(200).send({ "data": result })
+
+                } else {
+                    res.send(400).send("Not compressed")
                 }
-            })
-        } else{
-            res.send(400).send("Not compressed")
-        }
             }
         })
-        
 
-            
-    } else{
+
+
+    } else {
         res.status(400).send("File not found")
     }
 })
 
+app.post('/api/compress/text', (req, res) => {
+    const {data} = req.body;
+    if (data) {
 
+        console.log("text", data.size, "compress")
 
-app.post('/file/decompress/upload' , (req , res) => {
+        fs.writeFileSync('./text_files/main.txt', data);
 
-    if(req.files.file){
+        let status = compress();
+
+        if (status == 0) {
+
+            const result = fs.readFileSync('./text_files/main-compress.bin', 'utf8');
+            res.status(200).send({ "data": result })
+
+        } else {
+            res.send(400).send("Not compressed")
+        }
+        // }
+        // })
+
+    } else {
+        res.status(400).send("File not found")
+    }
+})
+
+app.post('/api/decompress/file', (req, res) => {
+
+    if (req.files.file) {
         let file = req.files.file
 
         let file_name = file.name;
 
-        console.log( file_name , file.size , "decompress")
+        console.log(file_name, file.size, "decompress")
 
-        file.mv('./text_files/main-compress.bin' , function (err) {
-            if(err){
+        file.mv('./text_files/main-compress.bin', function (err) {
+            if (err) {
                 console.log(err)
                 res.status(404).send("Not uploaded \nPlease check your file type");
-            } else{
-                
-                
-            let status = decompress();    
-                
-            if(status != 0) res.status(400).send("Not compressed")
-    
-            else{
-   
-                var options = {
-                    root : path.join(__dirname)
-                };
-    
-                res.status(200).sendFile('./text_files/main-compress-decompress.txt' , options , (err)=>{
-                    if(err){
-                        console.log(err);
-                    } else{
-                        console.log("Done")
-                    }
-                })
-            }
-        }
+            } else {
 
-    })
-        
-        
-    } else{
+
+                let status = decompress();
+
+                if (status != 0) res.status(400).send("Not compressed")
+
+                else {
+
+                    const result = fs.readFileSync('./text_files/main-compress-decompress.txt', 'utf8');
+                    res.status(200).send({ "data": result });
+                }
+            }
+
+        })
+
+
+    } else {
         res.status(400).send("File not found")
     }
 })
 
-app.get('/files' , (req , res) => {
-    res.status(200);
+app.post('/api/decompress/text', (req, res) => {
+    res.status(503).send("Service Unavailable");
 })
 
-
-app.listen( port , (err) => {
-    if(err) {
+app.listen(port, (err) => {
+    if (err) {
         console.log(err)
     } else {
-        console.log("Server started on port " , port , " .....")
+        console.log("Server started on port ", port, " .....")
     }
 })
 

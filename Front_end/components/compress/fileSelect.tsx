@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react'
 import Dropzone from 'react-dropzone'
 import { Popover, Button, Text, Table, Loading } from "@nextui-org/react";
-import { upload } from './upload';
+import { upload_file } from './upload';
 import fileDownload from 'js-file-download';
 
 type node = {
@@ -18,14 +18,13 @@ type node = {
 const FileSelect = () => {
 
 
-    let [total, setTotal] = useState(1)
     const [list, setList] = useState([] as any[]);
-    const [done_file_name, setDone_file_name] = useState(null);
+    const [done_file, setDone_file] = useState(-1);
 
 
     const onDrop = (files: never[] | any) => {
         let newList: any[] = [];
-
+        let total = list.length;
         for (let i = 0; i < files.length; i++) {
             if (files[i].type != 'text/plain') {
                 alert(`${files[i].name} please drag only text file`);
@@ -46,7 +45,6 @@ const FileSelect = () => {
             total++;
         }
 
-        setTotal(total);
         setList(list.concat(newList));
     }
 
@@ -56,37 +54,40 @@ const FileSelect = () => {
 
     const onUpload = async (key: any) => {
 
-        let obj = list[key - 1];
-        let res = upload(obj.main_file);
+        let obj = list[key];
+        const res = await upload_file(obj.main_file);
 
         obj.status = 2;
 
         let newList1: React.SetStateAction<any[]> = [...list];
-        newList1[key - 1] = obj;
+        newList1[key] = obj;
         setList(newList1);
-
+        console.log(res);
         obj.compress_data = (await res).data;
         obj.size_compressed = (await res).data.length;
         obj.status = 1;
 
         let newList: React.SetStateAction<any[]> = [...list];
-        newList[key - 1] = obj;
+        newList[key] = obj;
 
-        setDone_file_name(obj.name);
-        await sleep(2500).then(() => setDone_file_name(null))
+        setDone_file(key);
+        await sleep(5000).then(() => setDone_file(-1))
         setList(newList);
     }
 
     const onDownload = async (key: any) => {
-        let last_index = (list[key - 1].name).lastIndexOf('.');
-        fileDownload(list[key - 1].compress_data, list[key - 1].name.substring(0, last_index) + "-compress.bin");
+        let last_index = (list[key].name).lastIndexOf('.');
+        fileDownload(list[key].compress_data, list[key].name.substring(0, last_index) + "-compress.bin");
     }
 
     return (
         <div className={"w-fit min-h-fit min-w-[85%] ml-[7.5%] h-fit mt-[2%]"}>
-            <div className={"absolute top-[12px] h-[40px] w-[60%] left-[18%] bg-lime-200 opacity-60  rounded-lg text-center boxShadow font-semibold animate-bounce " + (done_file_name == null ? "hidden" : "")} >
-                {done_file_name} is successfully compressed
+            {done_file == -1 ? "" : <div className="absolute p-2 bottom-[20px]  h-[100px] min-w-[10%] w-fit opacity-70 hover:opacity-100 right-[5%] bg-green-100  rounded-lg text-center boxShadow font-semibold animate-bounce z-50" >
+                {list[done_file].name} is successfully compressed
+                <Button className='bg-orange-200 mt-5 ml-9 w-[200px] h-[40px] border-2 rounded-md hover:bg-orange-400 hover:boxShadow' onClick={() => onDownload(done_file)}>download</Button>
+                
             </div>
+            }
             <div className="">
                 <Dropzone multiple={true} onDrop={onDrop}>
                     {({ getRootProps, getInputProps }) => (
@@ -102,7 +103,7 @@ const FileSelect = () => {
                     )}
                 </Dropzone>
             </div>
-            <div className="min-h-fit h-[82%] w-fit min-w-full">
+            <div className="min-h-fit h-[82%] w-fit min-w-full relative z-30">
                 <Table
 
                     striped

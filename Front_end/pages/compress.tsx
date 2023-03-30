@@ -21,7 +21,7 @@ export default function Compress() {
             </div>
             <div className="w-full  h-fit">
                 <div className="w-full text-center text-5xl font-semibold text-white">Compress</div>
-                <Button bordered onClick={() => { setChoice(!choice) }} className='w-52 gradientCompressButton h-10 ml-10' >{choice ? 'Write your own' : 'Upload text file'}</Button>
+                <Button bordered onPress={() => { setChoice(!choice) }} className='w-52 gradientCompressButton h-10 ml-10' >{choice ? 'Write your own' : 'Upload text file'}</Button>
             </div>
             <div className="h-fit min-h-full w-fit min-w-full">
             {

@@ -7,16 +7,20 @@ module.exports = () => {
   const rewrites = () => {
     return [
       {
-        source: "/file/compress/upload",
-        destination: "https://backend-compress-decompress.onrender.com/file/compress/upload",
+        source: "/api/compress/file",
+        destination: process.env.BACK_END_URL + "/api/compress/file",
       },
       {
-        source: "/file/decompress/upload",
-        destination: "https://backend-compress-decompress.onrender.com/file/decompress/upload",
+        source: "/api/decompress/file",
+        destination: process.env.BACK_END_URL + "/api/decompress/file",
       },
       {
-        source: "/ducks",
-        destination: "http://localhost:5000/",
+        source: "/api/compress/text",
+        destination: process.env.BACK_END_URL + "/api/compress/text",
+      },
+      {
+        source: "/api/decompress/text",
+        destination: process.env.BACK_END_URL + "/api/decompress/text",
       },
     ];
   };
