@@ -8,7 +8,6 @@ import Footer from '../components/main page/footer'
 const Home: NextPage = () => {
 	return (
 		<div className="">
-			{/* <Navbar /> */}
 			<div className="flex min-h-screen h-fit w-fit min-w-full flex-col">
 				<Main />
 				<Main_compress_info />

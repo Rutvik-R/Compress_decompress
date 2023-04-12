@@ -38,4 +38,7 @@
         -webkit-filter: drop-shadow(5px 5px 5px #ad7fbd);
         filter: drop-shadow(5px 5px 5px #db1cab);
     }
+    .tab4{
+        tab-size: 4;
+    }
 }
