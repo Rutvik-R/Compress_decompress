@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './navbar'
 export default function Main() {
     return (
-        <div className="h-fit min-h-screen w-fit min-w-full top-0 overflow-scroll gradientMain">
+        <div className="h-fit min-h-screen w-fit min-w-full top-0 overflow-scroll gradientMain scrollbar-hide">
             {/* <Navbar /> */}
             <div className='h-20 min-h-fit top-0 min-w-full w-fit p-[10px] flex bg-transparent justify-between items-center pr-16'>
                 <div className="h-full w-[300px]"><img src='/png/logo-white.png' className='object-cover h-full w-full mix-blend-screen'></img></div>

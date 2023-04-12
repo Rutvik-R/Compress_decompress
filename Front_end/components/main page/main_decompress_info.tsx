@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Main_decompress_info() {
     return (
-        <div className="h-full min-h-fit w-full border-2 overflow-scroll">
+        <div className="h-full min-h-fit w-full border-2 overflow-scroll scrollbar-hide">
             <div className="h-fit w-[95%] mx-[5%] flex p-0">
                 <div className=" border-black w-fit h-fit min-w-[50%]">
                     <div className="my-[7%] mx-6 text-5xl text-black font-semibold">Decompression</div>

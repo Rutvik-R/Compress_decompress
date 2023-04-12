@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Overview() {
     return (
-        <div className="h-full min-h-fit w-full border-2 overflow-scroll">
+        <div className="h-full min-h-fit w-full border-2 overflow-scroll scrollbar-hide">
             <div className="h-fit w-[90%] mx-[5%] flex p-0">
                 <div className="w-2/5 border-black"><a href='https://github.com/Rutvik-R/Compress_decompress' target='__blank'><img src='/file-sruct-backend.png' className='my-[5%] mx-[10%]  h-4/5 w-4/6 object-fill boxShadow'></img></a></div>
                 <div className=" border-black h-fit w-1/2">
