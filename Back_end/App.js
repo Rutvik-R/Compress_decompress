@@ -4,6 +4,7 @@ const cors = require('cors')
 const path = require('path')
 const fs = require('fs')
 
+
 const compress = require('./build/Release/compress');
 const decompress = require('./build/Release/decompress');
 
@@ -33,9 +34,9 @@ app.post('/api/compress/file', (req, res) => {
                 res.status(404).send("Not uploaded \nPlease check your file type");
             }
             else {
-                let start_time = performance.now();
+                let start_time = Date.now();
                 let status = compress();
-                let end_time = performance.now();
+                let end_time = Date.now();
 
                 console.log("compress" , file_name, file.size , "Time : " , (end_time - start_time) , "milliseconds" , status);
                 if (status == 0) {
@@ -62,9 +63,9 @@ app.post('/api/compress/text', (req, res) => {
 
         fs.writeFileSync('./text_files/main.txt', data);
 
-        let start_time = performance.now();
+        let start_time = Date.now();
         let status = compress();
-        let end_time = performance.now();
+        let end_time = Date.now();
 
         
         console.log("compress" , "TEXT", data.size , "Time : " , (end_time - start_time) , "milliseconds" , status);
@@ -100,9 +101,9 @@ app.post('/api/decompress/file', (req, res) => {
                 res.status(404).send("Not uploaded \nPlease check your file type");
             } else {
 
-                let start_time = performance.now();
+                let start_time = Date.now();
                 let status = decompress();
-                let end_time = performance.now();
+                let end_time = Date.now();
                 
                 
                 console.log("decompress" , file_name, file.size , "Time : " , (end_time - start_time) , "milliseconds" , status);

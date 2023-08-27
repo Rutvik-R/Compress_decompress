@@ -1,2 +1,720 @@
-20 5 10
-44 -72 97 71 23 68 98 -80 69 71 93 -6 -93 -28 -62 -98 33 -1 90 34
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
+Hi
+Hello 
+How are you ?
