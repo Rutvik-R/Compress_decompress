@@ -15,10 +15,14 @@
     }
 
     .gradientDropzone {
-        background: linear-gradient(45deg, red, blue);
+        background-image: linear-gradient(to right, #9796f0, #fbc7d4);
         border:none;
         cursor:move;
-        box-shadow: 1px 5px 5px 0px;
+        /* box-shadow: 1px 1px 5px 0px; */
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 18px;
+        border-color: black;
+        margin-bottom: 20px;
     }
 
     .boxShadow {

@@ -1,23 +1,23 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "compress", "compress.vcxproj", "{85D3F356-925E-02A7-44E3-22D077D55254}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "compress", "compress.vcxproj", "{2A2C3A26-E5C0-AD61-5755-95D7BA03309F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decompress", "decompress.vcxproj", "{27D04A9F-A448-1CCE-1913-899652920E81}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decompress", "decompress.vcxproj", "{18A8E5B2-7E66-EF11-4332-42F4EA317AEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Release|x64 = Release|x64
 		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27D04A9F-A448-1CCE-1913-899652920E81}.Release|x64.ActiveCfg = Release|x64
-		{27D04A9F-A448-1CCE-1913-899652920E81}.Release|x64.Build.0 = Release|x64
-		{27D04A9F-A448-1CCE-1913-899652920E81}.Debug|x64.ActiveCfg = Debug|x64
-		{27D04A9F-A448-1CCE-1913-899652920E81}.Debug|x64.Build.0 = Debug|x64
-		{85D3F356-925E-02A7-44E3-22D077D55254}.Release|x64.ActiveCfg = Release|x64
-		{85D3F356-925E-02A7-44E3-22D077D55254}.Release|x64.Build.0 = Release|x64
-		{85D3F356-925E-02A7-44E3-22D077D55254}.Debug|x64.ActiveCfg = Debug|x64
-		{85D3F356-925E-02A7-44E3-22D077D55254}.Debug|x64.Build.0 = Debug|x64
+		{18A8E5B2-7E66-EF11-4332-42F4EA317AEB}.Debug|x64.ActiveCfg = Debug|x64
+		{18A8E5B2-7E66-EF11-4332-42F4EA317AEB}.Debug|x64.Build.0 = Debug|x64
+		{18A8E5B2-7E66-EF11-4332-42F4EA317AEB}.Release|x64.ActiveCfg = Release|x64
+		{18A8E5B2-7E66-EF11-4332-42F4EA317AEB}.Release|x64.Build.0 = Release|x64
+		{2A2C3A26-E5C0-AD61-5755-95D7BA03309F}.Debug|x64.ActiveCfg = Debug|x64
+		{2A2C3A26-E5C0-AD61-5755-95D7BA03309F}.Debug|x64.Build.0 = Debug|x64
+		{2A2C3A26-E5C0-AD61-5755-95D7BA03309F}.Release|x64.ActiveCfg = Release|x64
+		{2A2C3A26-E5C0-AD61-5755-95D7BA03309F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

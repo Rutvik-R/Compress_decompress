@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{27D04A9F-A448-1CCE-1913-899652920E81}</ProjectGuid>
+    <ProjectGuid>{18A8E5B2-7E66-EF11-4332-42F4EA317AEB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>decompress</RootNamespace>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>

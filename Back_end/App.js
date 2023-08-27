@@ -26,21 +26,22 @@ app.post('/api/compress/file', (req, res) => {
 
         let file_name = file.name;
 
-        console.log(file_name, file.size, "compress")
-
+        
         file.mv('./text_files/main.txt', function (err) {
             if (err) {
                 console.log(err)
                 res.status(404).send("Not uploaded \nPlease check your file type");
             }
             else {
-
+                let start_time = performance.now();
                 let status = compress();
+                let end_time = performance.now();
 
+                console.log("compress" , file_name, file.size , "Time : " , (end_time - start_time) , "milliseconds" , status);
                 if (status == 0) {
 
                     const result = fs.readFileSync('./text_files/main-compress.bin', 'utf8');
-                    res.status(200).send({ "data": result })
+                    res.status(200).send({ "data": result , "time" : (end_time - start_time) })
 
                 } else {
                     res.send(400).send("Not compressed")
@@ -59,16 +60,19 @@ app.post('/api/compress/text', (req, res) => {
     const {data} = req.body;
     if (data) {
 
-        console.log("text", data.size, "compress")
-
         fs.writeFileSync('./text_files/main.txt', data);
 
+        let start_time = performance.now();
         let status = compress();
+        let end_time = performance.now();
+
+        
+        console.log("compress" , "TEXT", data.size , "Time : " , (end_time - start_time) , "milliseconds" , status);
 
         if (status == 0) {
 
             const result = fs.readFileSync('./text_files/main-compress.bin', 'utf8');
-            res.status(200).send({ "data": result })
+            res.status(200).send({ "data": result , "time" : (end_time - start_time) })
 
         } else {
             res.send(400).send("Not compressed")
@@ -96,15 +100,19 @@ app.post('/api/decompress/file', (req, res) => {
                 res.status(404).send("Not uploaded \nPlease check your file type");
             } else {
 
-
+                let start_time = performance.now();
                 let status = decompress();
+                let end_time = performance.now();
+                
+                
+                console.log("decompress" , file_name, file.size , "Time : " , (end_time - start_time) , "milliseconds" , status);
 
                 if (status != 0) res.status(400).send("Not compressed")
 
                 else {
 
                     const result = fs.readFileSync('./text_files/main-compress-decompress.txt', 'utf8');
-                    res.status(200).send({ "data": result });
+                    res.status(200).send({ "data": result , "time" : (end_time - start_time) });
                 }
             }
 
