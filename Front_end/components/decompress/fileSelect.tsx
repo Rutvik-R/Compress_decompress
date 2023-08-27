@@ -13,6 +13,7 @@ type node = {
     type: string,
     main_file: File
     compress_data: string
+    time : number
 }
 
 const FileSelect = () => {
@@ -43,6 +44,7 @@ const FileSelect = () => {
                 main_file: files[i],
                 compress_data: null,
                 size_compressed: null,
+                time : null,
             }
             newList = [...newList, x];
             total++;
@@ -70,7 +72,7 @@ const FileSelect = () => {
         obj.compress_data = (await res).data;
         obj.size_compressed = (await res).data.length;
         obj.status = 1;
-
+        obj.time = (await res).time;
         let newList: React.SetStateAction<any[]> = [...list];
         newList[key - 1] = obj;
 
@@ -86,10 +88,12 @@ const FileSelect = () => {
 
     return (
         <div className={"w-fit min-h-fit min-w-[85%] ml-[7.5%] h-fit z-50 mt-[2%]"}>
-           {done_file == -1 ? "" : <div className="absolute p-2 bottom-[20px]  h-[100px] min-w-[10%] w-fit opacity-70 hover:opacity-100 right-[5%] bg-green-100  rounded-lg text-center boxShadow font-semibold animate-bounce z-50" >
-                {list[done_file-1].name} is successfully decompressed
-                <Button className='bg-orange-200  mt-5 ml-20 w-[200px] h-[40px] border-2 rounded-md hover:bg-orange-400 hover:boxShadow' onClick={() => onDownload(done_file)}>download</Button>
-                
+           {done_file == -1 ? "" : <div className="absolute grid-cols-3 p-2 items-center bottom-[20px]  h-[120px] min-w-[10%] w-fit opacity-70 hover:opacity-100 right-[5%] bg-green-100  rounded-lg text-center boxShadow font-semibold animate-bounce z-50" >
+                 <Text className='rounded-md items-center grid-cols-3'>
+                        {list[done_file-1].name} is successfully decompressed <hr></hr>
+                        Time Taken : {parseFloat((list[done_file-1].time)).toFixed(2)} milliseconds <hr />
+                        <Button className='bg-orange-200 border-2 ml-[21%] mt-4 rounded-md hover:bg-orange-400 hover:boxShadow' onClick={() => onDownload(done_file)}>download</Button>
+                </Text>
             </div>
             }
             <div className="">
@@ -149,12 +153,12 @@ const FileSelect = () => {
                                         <Popover.Content>
                                             <Text className='rounded-md'>
                                                 Name : {obj.name} <hr></hr>
-                                                Size of file : {obj.size_main} <hr />
-                                                file type : {obj.type} <hr />
+                                                Size of bin file : {obj.size_main} <hr />
                                                 {obj.status == 1 ?
-                                                    `Compress file size : ${obj.size_compressed} `
+                                                    `Text file size : ${obj.size_compressed} `
                                                     : ""}
-
+                                                {obj.status == 1 ? <hr /> : ""}
+                                                {obj.status == 1 ? `Time : ${parseFloat((obj.time)).toFixed(2)} milliseconds`  : ""} 
                                             </Text>
                                         </Popover.Content>
                                     </Popover>

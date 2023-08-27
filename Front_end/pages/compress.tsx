@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import FileSelect from '../components/compress/fileSelect';
 import WriteYourOwn from '../components/compress/writeYourOwn';
 import { Button } from '@nextui-org/react';
+import choice_compress from './_customGlobals';
 export default function Compress() {
 
     const [choice, setChoice] = useState(true);
-
-
     
+    // console.log(choice_compress())
+
     return (
         <div className="h-fit min-h-screen w-fit min-w-full gradientCompress bg-repeat">
             <div className='h-20 top-0 w-full p-3 flex bg-transparent justify-between items-center pr-16'>

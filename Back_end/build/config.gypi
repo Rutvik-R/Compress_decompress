@@ -372,7 +372,7 @@
     "globalconfig": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm\\etc\\npmrc",
     "global_prefix": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm",
     "init_module": "C:\\Users\\rutvi.RUTVIK\\.npm-init.js",
-    "local_prefix": "D:\\compress-decompress\\Back_end",
+    "local_prefix": "D:\\Compress_decompress\\Back_end",
     "metrics_registry": "https://registry.npmjs.org/",
     "node_gyp": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js",
     "prefix": "C:\\Users\\rutvi.RUTVIK\\AppData\\Roaming\\npm",
