@@ -89,7 +89,7 @@ const FileSelect = () => {
             <Text className='rounded-md items-center grid-cols-3'>
                         {list[done_file].name} is successfully compressed <hr></hr>
                         Time Taken : {parseFloat((list[done_file].time)).toFixed(2)} milliseconds <hr />
-                        <Button className='bg-orange-200 border-2 ml-[21%] mt-4 rounded-md hover:bg-orange-400 hover:boxShadow' onClick={() => onDownload(done_file)}>download</Button>
+                        <Button className='bg-orange-200 border-2 mt-4 mx-auto rounded-md hover:bg-orange-400 hover:boxShadow' onClick={() => onDownload(done_file)}>download</Button>
                 </Text>
                 
             </div>

@@ -65,7 +65,7 @@ export default function WriteYourOwn() {
                 <Text className='rounded-md items-center grid-cols-3'>
                         {done_file_name} is successfully compressed <hr></hr>
                         Time Taken : {time.toFixed(2)} milliseconds <hr />
-                        <Button className='bg-orange-200 border-2 ml-9 mt-4 rounded-md hover:bg-orange-400 hover:boxShadow' onClick={onDownload}>download</Button>
+                        <Button className='bg-orange-200 border-2 mx-auto mt-4 rounded-md hover:bg-orange-400 hover:boxShadow' onClick={onDownload}>download</Button>
                 </Text>
             
             </div> : ""
