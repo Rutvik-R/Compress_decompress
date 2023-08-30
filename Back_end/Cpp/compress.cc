@@ -8,7 +8,7 @@
 
 // function to convert <= 7 bit binary string to int
 
-int bToNum(std::string &s , int size = 7) {
+int bToNum(std::string s , int size = 7) {
 
 	int num = 0 ;
 
