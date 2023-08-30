@@ -4,7 +4,6 @@
 #include <vector>
 #include <queue>
 
-
 // define class node for huffman codeing
 
 class node_h {
@@ -105,9 +104,9 @@ std::vector<std::string> huffmanCode(unsigned long long freq[]) {
 	return code;
 }
 
-// function to convert <= 8 bit binary string to int
+// function to convert <= 7 bit binary string to int
 
-int bToNum(std::string s , int size = 8) {
+int bToNum(std::string s , int size = 7) {
 
 	int num = 0 ;
 
@@ -121,7 +120,7 @@ int bToNum(std::string s , int size = 8) {
 }
 
 
-int main() {
+int Main() {
 
 
 
@@ -133,7 +132,7 @@ int main() {
 	// extra for reading line by line
 
 	std::string extra = "" , main = "";
-
+	char c ;
 
 	// Reading tex from file linne by line
 
@@ -169,12 +168,31 @@ int main() {
 
 	// Print all codes in compress file
 
-	// for (std::string x : codes) std::cout << x << " ";
+	std::cout<<"\n\n"<<9<<" "<<(char)(9)<<"9\n\n";
 
-	// for (int i = 0 ; i < 256 ; i++) std::cout << codes[i] << " ";
+	for (int i = 0 ; i < 256 ; i++){
+		
+		if(codes[i] == "-1") {out<<-1<<"\n"; continue;}
 
-	for (int i = 0 ; i < 256 ; i++) out << codes[i] << " ";
-	out << "\n";
+		std::string code = "";
+		for(int j=0 ; j+6 < codes[i].size() ; j += 7){
+			code += bToNum(codes[i].substr(j , 7));
+			// std::cout<<"*"; 	
+		}
+		
+		int size = codes[i].size();
+		if(size%7) code += bToNum(codes[i].substr(size - size%7 , size%7) , size%7);
+		code += ('0' + size%7);
+
+		std::cout<<codes[i]<<" "<<code.size()<<" "<<code<<"\n";
+
+		out<<code.size()<<" "<<code<<"\n";	
+		// std::cout<<code<<" ";	
+	}
+	// std::cout<<std::endl;
+	// for(int i=0 ; i<256 ; i++) std::cout<<codes[i]<<" ";
+
+	// out << "\n";
 
 
 
@@ -190,23 +208,22 @@ int main() {
 
 	// convert binary data to coded chars and store direct in compress file
 
-	char c ;
 	int size = bit_line_code.size();
 
 	// std::cout << "hello\n" << bit_line_code;
 
-	for (int i = 0 ; i < size - size % 8 ; i += 8) {
+	for (int i = 0 ; i < size - size % 7 ; i += 7) {
 
-		c = bToNum(bit_line_code.substr(i , 8));
+		c = bToNum(bit_line_code.substr(i , 7));
 
 		out << c;
 		// std::cout << c;
 	}
 
-	// check for last <8 bits and store it
+	// check for last <7 bits and store it
 
-	if (size % 8) {
-		c = bToNum(bit_line_code.substr(size - size % 8 , size % 8) , size % 8);
+	if (size % 7) {
+		c = bToNum(bit_line_code.substr(size - size % 7 , size % 7) , size % 7);
 
 		out <<  c ;
 		// std::cout << c;
@@ -214,7 +231,7 @@ int main() {
 
 	// store how many bits are important of last charecter
 
-	out << (bit_line_code.size() % 8);
+	out << (bit_line_code.size() % 7);
 	// std::cout << (bit_line_code.size() % 8) << std::endl;
 
 
@@ -222,5 +239,17 @@ int main() {
 
 	out.close();
 
+
+	return 1;
+
+}
+
+int main(){
+
+	Main();
+
+
 	return 0;
 }
+
+// while change run node-gyp configure build

@@ -2,11 +2,9 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <unordered_map>
+#include <map>
 #include <node_api.h>
-
-
-
+#include "huffmanCode.h"
 
 // function which convert int to <=7 bit binary string
 std::string numToB(int num , int i = 7) {
@@ -25,30 +23,6 @@ std::string numToB(int num , int i = 7) {
 	return ans;
 
 }
-// function which convert binary data to original text by help of their codes
-std::string biLineToMainline(std::string biLine , std::vector<std::string> &codes) {
-
-	std::unordered_map<std::string , int> mp;
-
-	for (int i = 0 ; i < 256 ; i++) mp[codes[i]] = i;
-
-	std::string ss = "" , main = "";
-
-	for (char c : biLine) {
-
-		ss += c ;
-
-		if (mp.find(ss) != mp.end()) {
-			main += (char)mp[ss] ;
-			// cout << (char)mp[ss];
-			ss = "";
-		}
-
-	}
-
-	return main;
-}
-
 
 napi_value Main(napi_env env , napi_callback_info info) {
 
@@ -65,24 +39,24 @@ napi_value Main(napi_env env , napi_callback_info info) {
 	std::ofstream out("text_files/main-compress-decompress.txt");
 
 
-	// Store all codes in codes vector
-
-	std::vector<std::string> codes(256);
-
-	for (int i = 0 ; i < 256 ; i++) in >> codes[i];
-
-
-
-	// for (int i = 0 ; i < 256 ; i++) std::cout << codes[i] << " ";
-
 	// take full coded text form compress file
+	std::string codedFile = "" , extra , code;
+	int size , total , fe , c;
+	
+	unsigned long long freq[256] = {0};	
 
-	std::string codedFile = "" , extra;
-
+	// Take freq of all chars
+	in >> total;
+	while(total--){
+		in>>c>>fe;
+		freq[c] = fe;
+ 	}
 	getline(in , extra);
 
-	// checking for new line accore ?
 
+	std::vector<std::string> codes = huffmanCode(freq);
+
+	// checking for new line accore ?
 	bool check_first_time = true;
 
 	while (getline(in , extra)) {
@@ -93,49 +67,44 @@ napi_value Main(napi_env env , napi_callback_info info) {
 	}
 
 
-	int size = codedFile.size();
+	size = codedFile.size();
 
 	// check for file (main file) is not empty
-
 	if (size > 1) {
 
 		// convert coded text to binary form
-
 		std::string binFile = "";
 
-		for (int i = 0  ; i < size - 2 ; i++) {
-
+		for (int i = 0  ; i < size - 2 ; i++)
 			binFile += numToB(int(codedFile[i]));
 
-		}
-
 		// check for less then 7  last bits
-
 		binFile += numToB(codedFile[size - 2] , (codedFile[size - 1] - '0'));
 
 		// convert binary text to original text by calling biLineToMainline function
-
-		// std::cout << binFile << std::endl;
-
 		std::string main_file = "";
 
-		main_file = biLineToMainline(binFile , codes);
+		std::map<std::string , int> mp;
 
-		// print final (original) text in decompress file
+		for (int i = 0 ; i < 256 ; i++) mp[codes[i]] = i;
 
-		out << main_file;
+		std::string ss = "" , main = "";
+
+		for (char c : binFile) {
+			ss += c ;
+			if(mp.find(ss) != mp.end()) {
+				out << (char)mp[ss] ;
+				ss = "";
+			}
+		}
+
 	}
 
 	// close output file
-
 	out.close();
 
-
 	napi_create_double(env , 0 , &output);
-
-
 	return output;
-
 }
 
 
