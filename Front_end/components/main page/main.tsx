@@ -3,16 +3,7 @@ import Navbar from './navbar'
 export default function Main() {
     return (
         <div className="h-fit min-h-screen w-fit min-w-full top-0 overflow-scroll gradientMain scrollbar-hide">
-            {/* <Navbar /> */}
-            <div className='h-20 min-h-fit top-0 min-w-full w-fit p-[10px] flex bg-transparent justify-between items-center pr-16'>
-                <div className="h-full w-[300px]"><img src='/png/logo-white.png' className='object-cover h-full w-full mix-blend-screen'></img></div>
-                <ul className='flex space-x-4 text-white text-md'>
-                    <li><a href='/'>Home</a></li>
-                    <li><a href='/compress'>Compress</a> </li>
-                    <li><a href='/decompress'>Decompress</a></li>
-                    <li><a href='/about'>About</a></li>
-                </ul>
-            </div>
+            <Navbar />
             <div className="flex h-fit w-full min-h-[80px] align-middle">
                 <div className="h-full min-h-fit px-[40px] w-[49%] mx-[10px] align-middle my-10 justify-items-center left-0 items-center">
                     <div className="my-[7%] text-5xl text-white font-semibold">Small Files, Better Space</div>
